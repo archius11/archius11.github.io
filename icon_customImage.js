@@ -1,5 +1,5 @@
 ymaps.ready(function () {
-    console.log(getCitiesData());
+    CitiesData = getCitiesData();
     var myMap = new ymaps.Map('map', {
             center: [55.751574, 37.573856],
             zoom: 9,
@@ -67,10 +67,14 @@ ymaps.ready(function () {
      * Данные передаются вторым параметром в конструктор метки, опции - третьим.
      * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Placemark.xml#constructor-summary
      */
-    for(var i = 0, len = points.length; i < len; i++) {
-        geoObjects[i] = new ymaps.Placemark(points[i], getPointData(i), getPointOptions());
+    // for(var i = 0, len = points.length; i < len; i++) {
+    //     geoObjects[i] = new ymaps.Placemark(points[i], getPointData(i), getPointOptions());
+    // }
+    for(var i = 0, len = CitiesData.length; i < len; i++) {
+        crds = [CitiesData[i].coords['lat'], CitiesData[i].coords['lon']]
+        workername = {balloonContent: CitiesData[i].name}
+        geoObjects[i] = new ymaps.Placemark(crds, workername, getPointOptions());
     }
-
     /**
      * Можно менять опции кластеризатора после создания.
      */
