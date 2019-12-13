@@ -33,7 +33,7 @@ function getCitiesData() {
   // d3.csv.parse(text, function(data) {
   //   console.log(data[0]);
   //   });
-  d3.csv('cities.csv', function(data) {
+  d3.csv('/cities.csv', function(data) {
       console.log(data[0]);
     });
 }
