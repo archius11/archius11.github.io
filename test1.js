@@ -5,6 +5,8 @@ window.onload = function() {
       console.log(crd);
     }
   );
+
+  getCitiesData();
 }
 
 function getCityCoords(Cityname) {
@@ -24,8 +26,14 @@ function getCoordStruct(lon, lat) {
 }
 
 function getCitiesData() {
-  r = new XMLHttpRequest();
-  r.open("GET", 'https://geocode-maps.yandex.ru/1.x/?apikey=115a3177-7f09-478b-87bb-f3f75e76869a&format=json&geocode=' + Cityname + '&kind=locality', false);
-  r.send();
-  json = JSON.parse(r.responseText);
+  // r = new XMLHttpRequest();
+  // r.open("GET", 'https://archius11.github.io/cities.csv', false);
+  // r.send();
+  // text = r.response;
+  // d3.csv.parse(text, function(data) {
+  //   console.log(data[0]);
+  //   });
+  d3.csv('https://archius11.github.io/cities.csv', function(data) {
+      console.log(data[0]);
+    });
 }
