@@ -1,4 +1,5 @@
 ymaps.ready(function () {
+    console.log(getCitiesData());
     var myMap = new ymaps.Map('map', {
             center: [55.751574, 37.573856],
             zoom: 9,
@@ -93,3 +94,29 @@ ymaps.ready(function () {
         checkZoomRange: true
     });
 });
+
+
+function getCitiesData() {
+  r = new XMLHttpRequest();
+  r.open("GET", 'data.json', false);
+  r.send();
+  jsontext = r.response;
+  citiesArray = JSON.parse(jsontext);
+
+  return citiesArray;
+
+}
+
+ function loadJSON(callback) {
+
+    var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'my_data.json', true); // Replace 'my_data' with the path to your file
+    xobj.onreadystatechange = function () {
+          if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+          }
+    };
+    xobj.send(null);
+ }

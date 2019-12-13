@@ -1,12 +1,12 @@
 window.onload = function() {
-  cities = ['Москва', 'Чита', 'Казань'];
+  cities = getCitiesData();
   cities.forEach(function (item, i, arr){
-      crd = getCityCoords(item);
-      console.log(crd);
+      crd = getCityCoords(item.city);
+      cities[i]['coords'] = crd;
     }
   );
-
-  getCitiesData();
+  console.log(cities)
+  document.write(JSON.stringify(cities))
 }
 
 function getCityCoords(Cityname) {
@@ -26,14 +26,19 @@ function getCoordStruct(lon, lat) {
 }
 
 function getCitiesData() {
-  // r = new XMLHttpRequest();
-  // r.open("GET", 'https://archius11.github.io/cities.csv', false);
-  // r.send();
-  // text = r.response;
-  // d3.csv.parse(text, function(data) {
-  //   console.log(data[0]);
-  //   });
-  d3.csv('/cities.csv', function(data) {
-      console.log(data[0]);
-    });
+  r = new XMLHttpRequest();
+  r.open("GET", 'https://archius11.github.io/cities.csv', false);
+  r.send();
+  text = r.response;
+  rows = text.split('\n');
+
+  citiesArray = []
+  rows.forEach(function (item, i, arr) {
+    row_data = item.split(';');
+    if (row_data[0] != '')
+      citiesArray.push({name: row_data[0], city: row_data[1]});
+  });
+
+  return citiesArray;
+
 }
