@@ -36,7 +36,8 @@ function getCitiesData() {
   rows.forEach(function (item, i, arr) {
     row_data = item.split(';');
     if (row_data[0] != '')
-      citiesArray.push({name: row_data[0], city: row_data[1]});
+      //citiesArray.push({name: row_data[0], city: row_data[1]});
+      citiesArray.push({name: i, city: row_data[1]});
   });
 
   return citiesArray;
