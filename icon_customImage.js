@@ -42,7 +42,7 @@ ymaps.ready(function () {
 
     for(var i = 0, len = CitiesData.length; i < len; i++) {
         crds = [CitiesData[i].coords['lat'], CitiesData[i].coords['lon']]
-        workername = {balloonContent: CitiesData[i].name,
+        workername = {balloonContent: i,//CitiesData[i].name,
                       //balloonContentBody: 'q12',
                       clusterCaption: CitiesData[i].name
                       };
