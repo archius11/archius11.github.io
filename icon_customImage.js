@@ -27,27 +27,11 @@ ymaps.ready(function () {
              * Опции кластеров указываем в кластеризаторе с префиксом "cluster".
              * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ClusterPlacemark.xml
              */
-            clusterDisableClickZoom: true,
+            clusterDisableClickZoom: false,//true,
             clusterHideIconOnBalloonOpen: false,
             geoObjectHideIconOnBalloonOpen: false
         }),
-        /**
-         * Функция возвращает объект, содержащий данные метки.
-         * Поле данных clusterCaption будет отображено в списке геообъектов в балуне кластера.
-         * Поле balloonContentBody - источник данных для контента балуна.
-         * Оба поля поддерживают HTML-разметку.
-         * Список полей данных, которые используют стандартные макеты содержимого иконки метки
-         * и балуна геообъектов, можно посмотреть в документации.
-         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml
-         */
-            getPointData = function (index) {
-            return {
-                balloonContentHeader: '<font size=3><b><a target="_blank" href="https://yandex.ru">Здесь может быть ваша ссылка</a></b></font>',
-                balloonContentBody: '<p>Ваше имя: <input name="login"></p><p>Телефон в формате 2xxx-xxx:  <input></p><p><input type="submit" value="Отправить"></p>',
-                balloonContentFooter: '<font size=1>Информация предоставлена: </font> балуном <strong>метки ' + index + '</strong>',
-                clusterCaption: 'метка <strong>' + index + '</strong>'
-            };
-        },
+
         /**
          * Функция возвращает объект, содержащий опции метки.
          * Все опции, которые поддерживают геообъекты, можно посмотреть в документации.
@@ -72,7 +56,10 @@ ymaps.ready(function () {
     // }
     for(var i = 0, len = CitiesData.length; i < len; i++) {
         crds = [CitiesData[i].coords['lat'], CitiesData[i].coords['lon']]
-        workername = {balloonContent: CitiesData[i].name}
+        workername = {balloonContent: CitiesData[i].name,
+                      //balloonContentBody: 'q12',
+                      clusterCaption: CitiesData[i].name
+                      };
         geoObjects[i] = new ymaps.Placemark(crds, workername, getPointOptions());
     }
     /**
