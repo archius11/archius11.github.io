@@ -4,6 +4,7 @@
     <list default="true" id="ee548195-34a5-4778-8d8c-bd5722080676" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/icon_customImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/icon_customImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,10 +26,11 @@
   <component name="ProjectId" id="1UvwzF2gCpBtejcG2Gr3XB2HKtb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test1" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -59,7 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1576250636692</updated>
       <workItem from="1576250639715" duration="1528000" />
-      <workItem from="1576256065168" duration="11589000" />
+      <workItem from="1576256065168" duration="13336000" />
     </task>
     <servers />
   </component>
