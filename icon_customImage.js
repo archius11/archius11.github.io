@@ -46,7 +46,7 @@ ymaps.ready(function () {
                       //balloonContentBody: 'q12',
                       clusterCaption: CitiesData[i].name
                       };
-        console.log(workername)
+
         geoObjects[i] = new ymaps.Placemark(crds, workername, getPointOptions());
     }
 
